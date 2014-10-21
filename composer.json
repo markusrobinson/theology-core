@@ -1,0 +1,23 @@
+{
+    "name": "markusrobinson/theology-core",
+    "autoload": {
+        "psr-0" : {
+            "Weaverryan\\DangerZone" : "src"
+        }
+    }
+}
+{
+    "name": "markusrobinson/theology-core",
+    "description": "Core for Theology",
+    "type": "theology core",
+    "license": "None",
+    "authors": [
+        {
+            "name": "Markus Robinson",
+            "homepage": "http://markusrobinson.com"
+        }
+    ],
+    "require": {
+        "composer/installers": "*"
+    }
+}
