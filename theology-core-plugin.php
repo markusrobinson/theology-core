@@ -37,18 +37,19 @@ class Theology_core {
 
 
 
-function remove_dashboard_meta() {
-    remove_meta_box( 'dashboard_incoming_links', 'dashboard', 'normal' );
-    remove_meta_box( 'dashboard_plugins', 'dashboard', 'normal' );
-    remove_meta_box( 'dashboard_primary', 'dashboard', 'normal' );
-    remove_meta_box( 'dashboard_secondary', 'dashboard', 'normal' );
-    remove_meta_box( 'dashboard_quick_press', 'dashboard', 'side' );
-    remove_meta_box( 'dashboard_recent_drafts', 'dashboard', 'side' );
-    remove_meta_box( 'dashboard_recent_comments', 'dashboard', 'normal' );
-    remove_meta_box( 'dashboard_right_now', 'dashboard', 'normal' );
-    remove_meta_box( 'dashboard_activity', 'dashboard', 'normal');//since 3.8
-}
-add_action( 'admin_init', 'remove_dashboard_meta' );
+    function remove_dashboard_meta() {
+        remove_meta_box( 'dashboard_incoming_links', 'dashboard', 'normal' );
+        remove_meta_box( 'dashboard_plugins', 'dashboard', 'normal' );
+        remove_meta_box( 'dashboard_primary', 'dashboard', 'normal' );
+        remove_meta_box( 'dashboard_secondary', 'dashboard', 'normal' );
+        remove_meta_box( 'dashboard_quick_press', 'dashboard', 'side' );
+        remove_meta_box( 'dashboard_recent_drafts', 'dashboard', 'side' );
+        remove_meta_box( 'dashboard_recent_comments', 'dashboard', 'normal' );
+        remove_meta_box( 'dashboard_right_now', 'dashboard', 'normal' );
+        remove_meta_box( 'dashboard_activity', 'dashboard', 'normal');//since 3.8
+
+    }
+    add_action( 'admin_init', 'remove_dashboard_meta' );
 
     function my_login_stylesheet() {
         wp_enqueue_style( 'custom-login', PLUGIN_URL . '/assets/css/login.css' );
@@ -57,12 +58,17 @@ add_action( 'admin_init', 'remove_dashboard_meta' );
 
     add_action( 'login_enqueue_scripts', 'my_login_stylesheet' );
 
-// add new dashboard widgets
-function wptutsplus_add_dashboard_widgets() {
-    wp_add_dashboard_widget( 'wptutsplus_dashboard_welcome', 'Welcome', 'wptutsplus_add_welcome_widget' );
-    wp_add_dashboard_widget( 'wptutsplus_dashboard_links', 'Useful Links', 'wptutsplus_add_links_widget' );
-}
-function wptutsplus_add_welcome_widget(){ ?>
+
+    remove_action(' welcome_panel ', ' wp_welcome_panel');
+/*
+    // add new dashboard widgets
+    function wptutsplus_add_dashboard_widgets() {
+        wp_add_dashboard_widget( 'wptutsplus_dashboard_welcome', 'Welcome', 'wptutsplus_add_welcome_widget' );
+        wp_add_dashboard_widget( 'wptutsplus_dashboard_links', 'Useful Links', 'wptutsplus_add_links_widget' );
+    }
+
+
+    function wptutsplus_add_welcome_widget(){ ?>
 
     This content management system lets you edit the pages and posts on your website.
 
@@ -78,7 +84,7 @@ function wptutsplus_add_welcome_widget(){ ?>
 
 <?php }
 
-function wptutsplus_add_links_widget() { ?>
+    function wptutsplus_add_links_widget() { ?>
 
     Some links to resources which will help you manage your site:
 
@@ -88,8 +94,7 @@ function wptutsplus_add_links_widget() { ?>
         <li><a href="http://www.wpbeginner.com">WP Beginner</a></li>
     </ul>
 <?php }
-add_action( 'wp_dashboard_setup', 'wptutsplus_add_dashboard_widgets' );
-
-
+    add_action( 'wp_dashboard_setup', 'wptutsplus_add_dashboard_widgets' );
+*/
 
 ?>
