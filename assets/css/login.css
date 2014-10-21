@@ -1,0 +1,36 @@
+.login{
+    background: #27ae60;
+}
+
+body.login div#login a {
+   color: #ffffff;
+}
+
+#loginform {
+    background: #229955;
+
+}
+
+.login label {
+    color: #ffffff;
+}
+
+#wp-submit{
+    color: #ffffff;
+    background: #27ae60;
+}
+#login{
+    width:450px;
+}
+#wp-auth-check-wrap #wp-auth-check{
+width: 680px;
+}
+.login h1 a {
+    background-size: 184px;
+    width: 184px;
+}
+
+body.login div#login h1 a {
+    background-image: url("../img/theology-logo.png");
+    padding-bottom: 30px;
+}
