@@ -1,6 +1,18 @@
 <?php
 
-namespace Theology\Theology;
+/*
+Plugin Name:        Soil
+Plugin URI:         http://theology.co/plugins/core/
+Description:        Clean up WordPress markup, use relative URLs, nicer search URLs, and disable trackbacks
+Version:            0.0.1
+Author:             Roots
+Author URI:         http://theology.co/
+
+License:            MIT License
+License URI:        http://opensource.org/licenses/MIT
+*/
+
+
 
 function my_login_logo() { ?>
 <style type="text/css">
