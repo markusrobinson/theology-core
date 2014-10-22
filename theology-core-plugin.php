@@ -97,4 +97,57 @@ class Theology_core {
     add_action( 'wp_dashboard_setup', 'wptutsplus_add_dashboard_widgets' );
 */
 
+//hook the administrative header output
+
+
+
+    function my_admin_theme_style() {
+        wp_enqueue_style('my-admin-theme', PLUGIN_URL . 'assets/css/admin.css');
+        //wp_enqueue_style('my-admin-theme', PLUGIN_URL . 'assets/css/test.css');
+
+    }
+    add_action('admin_enqueue_scripts', 'my_admin_theme_style');
+
+
+
+
+    // removing appearance, users and plugins options from menu Items in WordPress Dashboard
+    function wp_admin_dashboard_remove_menus() {
+        global $menu;
+        //$restricted = array(__('Dashboard'), __('Posts'), __('Media'), __('Links'), __('Pages'), __('Appearance'), __('Tools'), __('Users'), __('Settings'), __('Comments'), __('Plugins'));
+
+        $restricted = array(__('Appearance'), __('Media'), __('Plugins'), __('Settings'));
+        end ($menu);
+        while (prev($menu)){
+            $value = explode(' ',$menu[key($menu)][0]);
+            if(in_array($value[0] != NULL?$value[0]:"" , $restricted)){unset($menu[key($menu)]);}
+        }
+    }
+    add_action('admin_menu', 'wp_admin_dashboard_remove_menus');
+
+
+    /*
+    if ( is_admin() ) {
+        add_action( 'init', create_function( '$a', "remove_action( 'init', 'wp_version_check' );" ), 2 );
+        add_filter( 'pre_option_update_core', create_function( '$a', "return null;" ) );
+        add_filter( 'pre_site_transient_update_core', create_function( '$a', "return null;" ) );
+    }*/
+
+    function custom_dashboard_widgets() {
+        global $wp_meta_boxes;
+        wp_add_dashboard_widget('custom_ad_widget', 'MyAds', 'custom_dashboard_ad');
+    }
+
+    function custom_dashboard_ad() {
+        echo '<p> Here is my widget.</p><br /> And one more line';
+    }
+
+    add_action('wp_dashboard_setup', 'custom_dashboard_widgets');
+
+    function remove_footer_admin () {
+        echo "Your own text";
+    }
+    //add_filter('admin_footer_text', 'remove_footer_admin');
+
+
 ?>
