@@ -1,5 +1,8 @@
 html { margin-top: 60px !important; }
 * html body { margin-top: 60px !important; }
+html.wp-toolbar {
+    padding:0px;
+}
 
 #wpadminbar * {
     height: auto;

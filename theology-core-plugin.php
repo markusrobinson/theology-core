@@ -51,13 +51,74 @@ class Theology_core {
     }
     add_action( 'admin_init', 'remove_dashboard_meta' );
 
-    function my_login_stylesheet() {
+    function login_stylesheet() {
         wp_enqueue_style( 'custom-login', PLUGIN_URL . '/assets/css/login.css' );
         wp_enqueue_script( 'custom-login', PLUGIN_URL . '/assets/js/login.js' );
     }
+    add_action( 'login_enqueue_scripts', 'login_stylesheet' );
 
-    add_action( 'login_enqueue_scripts', 'my_login_stylesheet' );
+    function customize_admin_bar_links() {
 
+        global $wp_admin_bar;
+    //$wp_admin_bar->remove_menu('wp-logo');          // Remove the WordPress logo
+    $wp_admin_bar->remove_menu('about');            // Remove the about WordPress link
+    $wp_admin_bar->remove_menu('wporg');            // Remove the WordPress.org link
+    $wp_admin_bar->remove_menu('documentation');    // Remove the WordPress documentation link
+    $wp_admin_bar->remove_menu('support-forums');   // Remove the support forums link
+    $wp_admin_bar->remove_menu('feedback');         // Remove the feedback link
+    $wp_admin_bar->remove_menu('site-name');        // Remove the site name menu
+    $wp_admin_bar->remove_menu('view-site');        // Remove the view site link
+    $wp_admin_bar->remove_menu('updates');          // Remove the updates link
+    $wp_admin_bar->remove_menu('comments');         // Remove the comments link
+    //$wp_admin_bar->remove_menu('new-content');      // Remove the content link
+    //$wp_admin_bar->remove_menu('w3tc');             // If you use w3 total cache remove the performance link
+    //$wp_admin_bar->remove_menu('my-account');       // Remove the user details tab
+
+    $wp_admin_bar->add_menu( array(
+        'parent' => false,
+        'id' => 'edit',
+        'title' => __('Edit')
+    ));
+
+    $wp_admin_bar->add_menu( array(
+        'parent' => 'edit',
+        'id' => 'post',
+        'title' => __('Posts'),
+        'href' => 'edit.php'
+    ));
+    $wp_admin_bar->add_menu( array(
+        'parent' => 'edit',
+        'id' => 'pages',
+        'title' => __('Pages'),
+        'href' => 'edit.php?post_type=page'
+    ));
+    $wp_admin_bar->add_menu( array(
+        'parent' => 'edit',
+        'id' => 'media',
+        'title' => __('Media'),
+        'href' => 'upload.php'
+    ));
+
+    $wp_admin_bar->add_menu( array(
+        'parent' => false,
+        'id' => 'manage',
+        'title' => __('Manage')
+    ));
+
+    $wp_admin_bar->add_menu(array(
+        'parent' => 'manage',
+        'id' => 'comments',
+        'title' => __('Comments'),
+        'href' => 'edit-comments.php'
+    ));
+
+    $wp_admin_bar->add_menu( array(
+        'parent' => false,
+        'id' => 'help',
+        'title' => __('Help')
+    ));
+}
+    add_action( 'wp_before_admin_bar_render', 'customize_admin_bar_links' );
 
     remove_action(' welcome_panel ', ' wp_welcome_panel');
 /*
@@ -97,25 +158,18 @@ class Theology_core {
     add_action( 'wp_dashboard_setup', 'wptutsplus_add_dashboard_widgets' );
 */
 
-//hook the administrative header output
 
-
-
-    function my_admin_theme_style() {
+    function admin_theme_style() {
         wp_enqueue_style('my-admin-theme', PLUGIN_URL . 'assets/css/admin.css');
-        //wp_enqueue_style('my-admin-theme', PLUGIN_URL . 'assets/css/test.css');
+        wp_enqueue_style('my-admin-theme-test', PLUGIN_URL . 'assets/css/test.css');
+        wp_enqueue_style('my-admin-theme-foundation', PLUGIN_URL . 'assets/css/general_foundicons.css');
 
     }
-    add_action('admin_enqueue_scripts', 'my_admin_theme_style');
+    add_action('admin_enqueue_scripts', 'admin_theme_style');
 
-
-
-
-    // removing appearance, users and plugins options from menu Items in WordPress Dashboard
     function wp_admin_dashboard_remove_menus() {
         global $menu;
         //$restricted = array(__('Dashboard'), __('Posts'), __('Media'), __('Links'), __('Pages'), __('Appearance'), __('Tools'), __('Users'), __('Settings'), __('Comments'), __('Plugins'));
-
         $restricted = array(__('Appearance'), __('Media'), __('Plugins'), __('Settings'));
         end ($menu);
         while (prev($menu)){
@@ -124,14 +178,6 @@ class Theology_core {
         }
     }
     add_action('admin_menu', 'wp_admin_dashboard_remove_menus');
-
-
-    /*
-    if ( is_admin() ) {
-        add_action( 'init', create_function( '$a', "remove_action( 'init', 'wp_version_check' );" ), 2 );
-        add_filter( 'pre_option_update_core', create_function( '$a', "return null;" ) );
-        add_filter( 'pre_site_transient_update_core', create_function( '$a', "return null;" ) );
-    }*/
 
     function custom_dashboard_widgets() {
         global $wp_meta_boxes;
@@ -149,5 +195,52 @@ class Theology_core {
     }
     //add_filter('admin_footer_text', 'remove_footer_admin');
 
+// Hook for adding admin menus
+add_action('admin_menu', 'mt_add_pages');
+
+// action function for above hook
+    function mt_add_pages() {
+    // Add a new submenu under Settings:
+    add_options_page(__('Test Settings','menu-test'), __('Test Settings','menu-test'), 'manage_options', 'testsettings', 'mt_settings_page');
+
+    // Add a new submenu under Tools:
+    add_management_page( __('Test Tools','menu-test'), __('Test Tools','menu-test'), 'manage_options', 'testtools', 'mt_tools_page');
+
+    // Add a new top-level menu (ill-advised):
+    add_menu_page(__('Test Toplevel','menu-test'), __('Test Toplevel','menu-test'), 'manage_options', 'mt-top-level-handle', 'mt_toplevel_page' );
+
+    // Add a submenu to the custom top-level menu:
+    add_submenu_page('mt-top-level-handle', __('Test Sublevel','menu-test'), __('Test Sublevel','menu-test'), 'manage_options', 'sub-page', 'mt_sublevel_page');
+
+    // Add a second submenu to the custom top-level menu:
+    add_submenu_page('mt-top-level-handle', __('Test Sublevel 2','menu-test'), __('Test Sublevel 2','menu-test'), 'manage_options', 'sub-page2', 'mt_sublevel_page2');
+}
+
+    // mt_settings_page() displays the page content for the Test settings submenu
+    function mt_settings_page() {
+        echo "<h2>" . __( 'Test Settings', 'menu-test' ) . "</h2>";
+    }
+
+    // mt_tools_page() displays the page content for the Test Tools submenu
+    function mt_tools_page() {
+        echo "<h2>" . __( 'Test Tools', 'menu-test' ) . "</h2>";
+    }
+
+    // mt_toplevel_page() displays the page content for the custom Test Toplevel menu
+    function mt_toplevel_page() {
+        echo "<h2>" . __( 'Test Toplevel', 'menu-test' ) . "</h2>";
+    }
+
+    // mt_sublevel_page() displays the page content for the first submenu
+    // of the custom Test Toplevel menu
+    function mt_sublevel_page() {
+        echo "<h2>" . __( 'Test Sublevel', 'menu-test' ) . "</h2>";
+    }
+
+    // mt_sublevel_page2() displays the page content for the second submenu
+    // of the custom Test Toplevel menu
+    function mt_sublevel_page2() {
+        echo "<h2>" . __( 'Test Sublevel2', 'menu-test' ) . "</h2>";
+    }
 
 ?>
