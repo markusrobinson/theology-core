@@ -158,11 +158,15 @@ class Theology_core {
     add_action( 'wp_dashboard_setup', 'wptutsplus_add_dashboard_widgets' );
 */
 
-
     function admin_theme_style() {
-        wp_enqueue_style('my-admin-theme', PLUGIN_URL . 'assets/css/admin.css');
-        wp_enqueue_style('my-admin-theme-test', PLUGIN_URL . 'assets/css/test.css');
-        wp_enqueue_style('my-admin-theme-foundation', PLUGIN_URL . 'assets/css/general_foundicons.css');
+
+        wp_enqueue_style('theology-theme-foundation', PLUGIN_URL . 'assets/css/general_foundicons.css');
+        wp_enqueue_style('theology-theme-foundation-ie', PLUGIN_URL . 'assets/css/general_foundicons_ie7.css');
+        wp_enqueue_style('theology-theme-foundation-include', PLUGIN_URL . 'assets/css/foundation-icons.css');
+        wp_enqueue_style('theology-theme-style', PLUGIN_URL . 'assets/css/style.css');
+        wp_enqueue_style('theology-admin-bar', PLUGIN_URL . 'assets/css/admin-bar.css');
+        wp_enqueue_style('theology-admin', PLUGIN_URL . 'assets/css/admin.css');
+        wp_enqueue_style('theology-buttons', PLUGIN_URL . 'assets/css/buttons.css');
 
     }
     add_action('admin_enqueue_scripts', 'admin_theme_style');
@@ -195,10 +199,10 @@ class Theology_core {
     }
     //add_filter('admin_footer_text', 'remove_footer_admin');
 
-// Hook for adding admin menus
-add_action('admin_menu', 'mt_add_pages');
+    // Hook for adding admin menus
+    add_action('admin_menu', 'mt_add_pages');
 
-// action function for above hook
+    // action function for above hook
     function mt_add_pages() {
     // Add a new submenu under Settings:
     add_options_page(__('Test Settings','menu-test'), __('Test Settings','menu-test'), 'manage_options', 'testsettings', 'mt_settings_page');

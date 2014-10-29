@@ -1,8 +1,8 @@
 /* font-face */
 @font-face {
   font-family: "GeneralFoundicons";
-  src: url("../../../../themes/theology-theme/assets/fonts/general_foundicons.eot");
-  src: url("../../../../themes/theology-theme/assets/fonts/general_foundicons.eot?#iefix") format("embedded-opentype"), url("../../../../themes/theology-theme/assets/fonts/general_foundicons.woff") format("woff"), url("../../../../themes/theology-theme/assets/fonts/general_foundicons.ttf") format("truetype"), url("../../../../themes/theology-theme/assets/fonts/general_foundicons.svg#GeneralFoundicons") format("svg");
+  src: url("../fonts/foundation/general_foundicons.eot");
+  src: url("../fonts/foundation/general_foundicons.eot?#iefix") format("embedded-opentype"), url("../fonts/foundation/general_foundicons.woff") format("woff"), url("../fonts/foundation/general_foundicons.ttf") format("truetype"), url("../fonts/foundation/general_foundicons.svg#GeneralFoundicons") format("svg");
   font-weight: normal;
   font-style: normal;
 }

@@ -1,73 +1,11 @@
-/* Jetpack is retina-crazy. Their backgrounds are declared with !importants,
-   so we have to use the .mp6 body class to trump their selectors.  */
-
-@media print,
-(-o-min-device-pixel-ratio: 5/4),
-(-webkit-min-device-pixel-ratio: 1.25),
-(min-resolution: 120dpi) {
-    .mp6 .curtime #timestamp,
-    .mp6 #screen-meta-links a.show-settings,
-    .mp6 .widget-top a.widget-action,
-    .mp6 .widget-top a.widget-action:hover,
-    .mp6 .sidebar-name-arrow,
-    .mp6 .sidebar-name:hover .sidebar-name-arrow,
-    .mp6 .meta-box-sortables .postbox:hover .handlediv,
-    .mp6 .tagchecklist span a,
-    .mp6 #bulk-titles div a,
-    .mp6 .tagchecklist span a:hover,
-    .mp6 #bulk-titles div a:hover,
-    .mp6 .wp_themeSkin .mceToolbar span.mce_undo,
-    .mp6 .wp_themeSkin .mceToolbar span.mce_redo,
-    .mp6 .wp_themeSkin .mceToolbar span.mce_bullist,
-    .mp6 .wp_themeSkin .mceToolbar span.mce_numlist,
-    .mp6 .wp_themeSkin .mceToolbar span.mce_blockquote,
-    .mp6 .wp_themeSkin .mceToolbar span.mce_charmap,
-    .mp6 .wp_themeSkin .mceToolbar span.mce_bold,
-    .mp6 .wp_themeSkin .mceToolbar span.mce_italic,
-    .mp6 .wp_themeSkin .mceToolbar span.mce_underline,
-    .mp6 .wp_themeSkin .mceToolbar span.mce_justifyleft,
-    .mp6 .wp_themeSkin .mceToolbar span.mce_justifyright,
-    .mp6 .wp_themeSkin .mceToolbar span.mce_justifycenter,
-    .mp6 .wp_themeSkin .mceToolbar span.mce_justifyfull,
-    .mp6 .wp_themeSkin .mceToolbar span.mce_indent,
-    .mp6 .wp_themeSkin .mceToolbar span.mce_outdent,
-    .mp6 .wp_themeSkin .mceToolbar span.mce_link,
-    .mp6 .wp_themeSkin .mceToolbar span.mce_unlink,
-    .mp6 .wp_themeSkin .mceToolbar span.mce_help,
-    .mp6 .wp_themeSkin .mceToolbar span.mce_removeformat,
-    .mp6 .wp_themeSkin .mceToolbar span.mce_fullscreen,
-    .mp6 .wp_themeSkin .mceToolbar span.mce_wp_fullscreen,
-    .mp6 .wp_themeSkin .mceToolbar span.mce_media,
-    .mp6 .wp_themeSkin .mceToolbar span.mce_pastetext,
-    .mp6 .wp_themeSkin .mceToolbar span.mce_pasteword,
-    .mp6 .wp_themeSkin .mceToolbar span.mce_wp_help,
-    .mp6 .wp_themeSkin .mceToolbar span.mce_wp_adv,
-    .mp6 .wp_themeSkin .mceToolbar span.mce_wp_more,
-    .mp6 .wp_themeSkin .mceToolbar span.mce_strikethrough,
-    .mp6 .wp_themeSkin .mceToolbar span.mce_spellchecker,
-    .mp6 .wp_themeSkin .mceToolbar span.mce_forecolor,
-    .mp6 .wp_themeSkin .mceToolbar .mce_forecolorpicker,
-    .mp6 .wp_themeSkin .mceToolbar .mceSplitButton .mce_spellchecker span.mce_spellchecker,
-    .mp6 .wp_themeSkin .mceToolbar .mceSplitButton .mce_forecolor span.mce_forecolor,
-    .mp6 .wp_themeSkin .mceToolbar .mceSplitButton span.mce_numlist,
-    .mp6 .wp_themeSkin .mceToolbar .mceSplitButton span.mce_bullist
-    { background: none !important; }
-}
-
-
-/*------------------------------------------------------------------------------
-  1.0 - Left to Right Styles
-------------------------------------------------------------------------------*/
-
 html.wp-toolbar {
     background: #fff;
 }
 
 h3 {
-    color: #0274be;
+    color: #229955;
 }
 
-/* Checkbooms */
 
 input[type=checkbox],
 input[type=radio] {
@@ -300,7 +238,7 @@ input[type="search"]:focus,
 input[type="tel"]:focus,
 input[type="url"]:focus,
 select:focus {
-    border-color: #0274be;
+    border-color: #27ae60;
     -webkit-box-shadow: 0px 0px 0px 2px rgba(2, 116, 190, 0.05);
     -moz-box-shadow:    0px 0px 0px 2px rgba(2, 116, 190, 0.05);
     box-shadow:         0px 0px 0px 2px rgba(2, 116, 190, 0.05);
@@ -428,12 +366,12 @@ strong .post-com-count:after {
 .wrap .add-new-h2:active,
 #add-new-comment a {
     color: #fff;
-    background: #0274be;
+    background: #27ae60;
 }
 
 .wrap .add-new-h2:hover,
 #add-new-comment a:hover {
-    background: #1e8ad1;
+    background: #27ae60;
     color: #fff;
 }
 
@@ -756,7 +694,7 @@ a,
 .plugins a.delete,
 .ui-tabs-nav a,
 .plugins .inactive a {
-    color: #0274be;
+    color: #27ae60;
     -moz-transition: all .3s ease-in-out;
     -webkit-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
@@ -787,7 +725,7 @@ a,
 #rightnow .reallynow,
 #adminmenu li.current a .awaiting-mod,
 #adminmenu	li a.wp-has-current-submenu .update-plugins {
-    background-color: #0274be;
+    background-color: #27ae60;
     color: #fff;
 }
 
@@ -1117,7 +1055,7 @@ span.jetpack-contact-form-icon:before {
     margin: 0;
     background: #fff;
     border: none;
-    color: #0274be;
+    color: #27ae60;
     font-weight: 600;
     margin: 0;
 }
@@ -1241,7 +1179,7 @@ table.widefat .spam a:hover,
 #adminmenu li.opensub > a.menu-top,
 #adminmenu li > a.menu-top:focus {
     background-color: #fff;
-    color: #0274be;
+    color: #27ae60;
 }
 
 /* flyout menu arrow */
@@ -1269,7 +1207,7 @@ table.widefat .spam a:hover,
 #adminmenu li.wp-has-current-submenu a.wp-has-current-submenu,
 #adminmenu li.current a,
 #adminmenu .wp-has-current-submenu .wp-submenu .wp-submenu-head {
-    color: #0274be;
+    color: #27ae60;
 }
 
 .folded #adminmenu li.wp-has-current-submenu,
@@ -1280,7 +1218,7 @@ table.widefat .spam a:hover,
 #adminmenu .wp-submenu li.current,
 #adminmenu .wp-submenu li.current a,
 #adminmenu .wp-submenu li.current a:hover {
-    color: #0274be;
+    color: #27ae60;
     background: transparent;
 }
 
@@ -1309,7 +1247,7 @@ table.widefat .spam a:hover,
 #adminmenu .wp-submenu li.current a,
 .folded #adminmenu a.wp-has-current-submenu:focus + .wp-submenu li.current a,
 .folded #adminmenu .wp-has-current-submenu .wp-submenu li.current a {
-    color: #0274be;
+    color: #27ae60;
 }
 
 /* Apply these styles to auto-folded menus */
@@ -1356,14 +1294,14 @@ table.widefat .spam a:hover,
 }
 
 #adminmenu li:hover div.wp-menu-image:before {
-    color: #0274be !important;
+    color: #27ae60 !important;
 }
 
 #adminmenu .wp-has-current-submenu div.wp-menu-image:before,
 #adminmenu .current div.wp-menu-image:before,
 #adminmenu a.wp-has-current-submenu:hover div.wp-menu-image:before,
 #adminmenu a.current:hover div.wp-menu-image:before {
-    color: #0274be !important;
+    color: #27ae60 !important;
 }
 
 /* Diff */
@@ -2069,11 +2007,11 @@ a .mceIcon:hover {
 }
 
 body.login {
-    background: #0274be;
+    background: #27ae60;
 }
 
 body.login:before {
-    background: #0274be;
+    background: #27ae60;
     content: "";
     display: block;
     width: 100%;
@@ -2131,6 +2069,10 @@ body.login:before {
 .rtl ul#adminmenu > li.current > a.current:after {
     border-right-color: transparent;
     border-left-color: #eee;
+}
+
+.rtl #adminmenuback, #adminmenuwrap, #adminmenu, #adminmenu .wp-submenu{
+    background: #f5f5f5;
 }
 
 /* Flyout Menu Arrow */
@@ -2207,9 +2149,7 @@ body.login:before {
 .wp-core-ui #post-preview:before { content: '\f179'; }
 
 
-/* Custom Rainmaker styles */
 
-/* blue */
 #spui-nav-showmore a:hover,
 .universal-settings-tabs li a:hover,
 .synthesis-widget ul.tabs li a:hover,
@@ -2219,19 +2159,19 @@ body.login:before {
 .universal-settings-wizard li.current a,
 .scribe-keyword-research-evaluations-remaining,
 .scribe-analysis-evaluations-remaining {
-    color: #0274be;
+    color: #27ae60;
 }
 
 .synthesis-widget ul.filter li.active button,
 .synthesis-widget ul.filter li button:hover {
-    background: #0274be;
-    border: 1px solid #0274be;
+    background: #27ae60;
+    border: 1px solid #27ae60;
 }
 
 .synthesis-widget .chart-list-vertical .tooltip,
 .synthesis-widget .chart-list-horizontal li span.index .orders,
 .synthesis-widget .chart-list-vertical li span.index .orders {
-    background: #0274be;
+    background: #27ae60;
 }
 
 .synthesis-widget .chart-list-vertical .tooltip:after {
