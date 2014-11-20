@@ -11,7 +11,7 @@ Author URI: http://theology.co
 
 define( 'PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'PLUGIN_URL', plugin_dir_url( __FILE__ ) );
-
+define( 'VERSION', '0.0.1');
 
 
 class Theology_core {
@@ -46,7 +46,8 @@ class Theology_core {
         remove_meta_box( 'dashboard_recent_drafts', 'dashboard', 'side' );
         remove_meta_box( 'dashboard_recent_comments', 'dashboard', 'normal' );
         remove_meta_box( 'dashboard_right_now', 'dashboard', 'normal' );
-        remove_meta_box( 'dashboard_activity', 'dashboard', 'normal');//since 3.8
+        remove_meta_box( 'dashboard_activity', 'dashboard', 'normal');
+        remove_action( 'welcome_panel', 'wp_welcome_panel' );
 
     }
     add_action( 'admin_init', 'remove_dashboard_meta' );
@@ -120,7 +121,8 @@ class Theology_core {
 }
     add_action( 'wp_before_admin_bar_render', 'customize_admin_bar_links' );
 
-    remove_action(' welcome_panel ', ' wp_welcome_panel');
+
+
 /*
     // add new dashboard widgets
     function wptutsplus_add_dashboard_widgets() {
@@ -159,14 +161,13 @@ class Theology_core {
 */
 
     function admin_theme_style() {
-
-        wp_enqueue_style('theology-theme-foundation', PLUGIN_URL . 'assets/css/general_foundicons.css');
-        wp_enqueue_style('theology-theme-foundation-ie', PLUGIN_URL . 'assets/css/general_foundicons_ie7.css');
-        wp_enqueue_style('theology-theme-foundation-include', PLUGIN_URL . 'assets/css/foundation-icons.css');
-        wp_enqueue_style('theology-theme-style', PLUGIN_URL . 'assets/css/style.css');
-        wp_enqueue_style('theology-admin-bar', PLUGIN_URL . 'assets/css/admin-bar.css');
-        wp_enqueue_style('theology-admin', PLUGIN_URL . 'assets/css/admin.css');
-        wp_enqueue_style('theology-buttons', PLUGIN_URL . 'assets/css/buttons.css');
+        wp_enqueue_style('theology-theme-foundation', PLUGIN_URL . 'assets/css/general_foundicons.css', array(), VERSION);
+        wp_enqueue_style('theology-theme-foundation-ie', PLUGIN_URL . 'assets/css/general_foundicons_ie7.css', array(), VERSION);
+        wp_enqueue_style('theology-theme-foundation-include', PLUGIN_URL . 'assets/css/foundation-icons.css', array(), VERSION);
+        wp_enqueue_style('theology-theme-style', PLUGIN_URL . 'assets/css/style.css', array(), VERSION);
+        wp_enqueue_style('theology-admin-bar', PLUGIN_URL . 'assets/css/admin-bar.css', array(), VERSION);
+        wp_enqueue_style('theology-admin', PLUGIN_URL . 'assets/css/admin.css', array(), VERSION);
+        wp_enqueue_style('theology-buttons', PLUGIN_URL . 'assets/css/buttons.css', array(), VERSION);
 
     }
     add_action('admin_enqueue_scripts', 'admin_theme_style');

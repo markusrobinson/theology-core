@@ -289,7 +289,7 @@ h3.dashboard-widget-title small,
 .js .control-section .accordion-section-title:hover,
 .js .control-section.open .accordion-section-title,
 .js .control-section .accordion-section-title:focus {
-    background: #0274bd;
+    background: #229955;
     border-color: #0274bd !important;
 }
 
@@ -333,7 +333,7 @@ h3.dashboard-widget-title small,
 }
 
 strong .post-com-count span {
-    background-color: #0274bd;
+    background-color: #229955;
 }
 
 .post-com-count:after {		/* draw bubble connector using CSS! */
@@ -582,7 +582,7 @@ table.widefat span.spam a:hover,
 .tablenav .next,
 .tablenav .prev {
     border-color: transparent;
-    color: #0274bd;
+    color: #229955;
 }
 
 .tablenav .next:hover,

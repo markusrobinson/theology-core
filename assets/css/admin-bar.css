@@ -25,6 +25,7 @@ html.wp-toolbar {
     transition: none;
 }
 
+
 #wpadminbar .dashicons {
     font-family: dashicons;
 }
@@ -488,15 +489,16 @@ html.wp-toolbar {
 }
 
 /**
- * Rainmaker Logo
+ * Theology Logo
  */
-#wpadminbar #wp-admin-bar-rm-logo > .ab-item {
+#wpadminbar #wp-admin-bar-wp-logo > .ab-item {
     padding: 0;
-    width:  60px;
+    width:  160px;
     text-align: center;
+    padding-left: 10px;
 }
 
-#wpadminbar #wp-admin-bar-rm-logo > .ab-item .ab-icon {
+#wpadminbar #wp-admin-bar-wp-logo > .ab-item .ab-icon {
     width: 60px;
     height: 20px;
     opacity: 1;
@@ -505,11 +507,13 @@ html.wp-toolbar {
     margin-right: 0;
 }
 
-#wpadminbar #wp-admin-bar-rm-logo > .ab-item .ab-icon:before {
+#wpadminbar #wp-admin-bar-wp-logo > .ab-item .ab-icon:before {
     color: #fff;
-    content: 'c';
+    content: "Theology";
     font-size: 22px;
     font: normal 30px/1 'spui' !important;
+
+
 }
 
 /**

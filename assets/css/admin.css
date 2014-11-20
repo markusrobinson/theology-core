@@ -5666,7 +5666,7 @@ span.imgedit-scale-warn {
 }
 
 .theme-browser .theme {
-    background: #0274bd;
+    background: #229955;
     cursor: pointer;
     float: left;
     margin: 0 3% 3% 0;
@@ -5836,7 +5836,7 @@ a.activate:hover {
 }
 
 .theme-browser .add-new-theme:hover {
-    background-color: #0274bd;
+    background-color: #229955;
 }
 
 .theme-browser .add-new-theme:hover .theme-name {
@@ -5959,7 +5959,7 @@ a.activate:hover {
 .theme-overlay .theme-header .close:hover,
 .theme-overlay .theme-header .right:hover,
 .theme-overlay .theme-header .left:hover {
-    background: #0274bd;
+    background: #229955;
     color: #fff !important;
 }
 
@@ -10726,7 +10726,7 @@ a.widget-control-edit {
 
 
 #TB_window #TB_title {
-    background-color: #0274bd;
+    background-color: #229955;
     color: #fff;
     padding: 10px
 }
